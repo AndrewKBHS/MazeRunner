@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Maze {
     private String[][] maze = {
             {"#","#","#","e","#"},
@@ -33,9 +31,20 @@ public class Maze {
         }
         return false;
     }
+
+    public void explosion(Runner runner) {
+        String[] arr = runner.getMoves();
+        for (String s : arr) {
+            maze[r][c] = s;
+            for (int r=0; r<130000; r++) {
+                System.out.println(this);
+            }
+        }
+    }
+
     public boolean move(String letter) {
         if (letter.equals("w")) {
-            if(verifyMove(r-1, c)) {
+            if (verifyMove(r-1, c)) {
                 maze[r][c] = " ";
                 r-=1;
                 maze[r][c] = runner.toString();
