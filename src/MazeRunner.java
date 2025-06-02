@@ -57,18 +57,21 @@ public class MazeRunner {
             }
         }
 
-
+        //Ending scores 
         System.out.println("It took you " + maze.getStep() + " moves to complete the maze!");
 
         int[] scores = new int[5];
         String[] names = new String[5];
 
         Scanner in2;
+        //Stores the leaderboard contents into arrays 
         for (int r=0; r<5; r++) {
             in2 = new Scanner(file.nextLine());
             scores[r] = in2.nextInt();
             names[r] = in2.next();
         }
+
+        //If the user's score is higher (less steps), place them on the leaderboard
         for (int r=0; r<5; r++) {
             if (maze.getStep() < scores[r]) {
                 for (int a=4; a>r; a--) {
@@ -81,8 +84,10 @@ public class MazeRunner {
             }
         }
 
+       
         PrintWriter writer = new PrintWriter("leaderboard.txt");
 
+        //Display the new leaderboard and save to the leaderboard file 
         System.out.println("Leaderboard:");
         for (int r=0; r<5; r++) {
             System.out.println(names[r] + ": " + scores[r]);
