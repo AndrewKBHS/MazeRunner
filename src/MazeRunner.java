@@ -1,11 +1,14 @@
 import java.io.*;
 import java.util.*;
 
-/* 
+/**
     *Runs the MazeRunner game
     *@author Andrew Kim 
 */
 public class MazeRunner {
+    /** 
+       *Starts a game where the runner has to reach the end
+    */
     public static void main(String[] args) throws FileNotFoundException {
         //setup input system
         Scanner in = new Scanner(System.in);
