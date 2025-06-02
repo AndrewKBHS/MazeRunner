@@ -1,3 +1,6 @@
+/*
+    *Stores a runner object
+*/
 public class Runner {
     private String shape;
     private String[] moves;
