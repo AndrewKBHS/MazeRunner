@@ -25,7 +25,7 @@ public class Maze {
         r = 4;
         c = 1;
         runner = person;
-        maze[r][c] = person.toString();
+        maze[r][c] = person.toString(); //Update the maze to include the runner
     }
 
     /**
@@ -46,8 +46,8 @@ public class Maze {
     }
 
     /**
-     * Prints a series of mazes to animated the runner colliding into a wall/boundary
-     * @param runner the runner that is colliding
+     * Prints a series of mazes to animate the runner colliding into a wall/boundary
+     * @param runner the runner type that is colliding
     */
     public void explosion(Runner runner) {
         String[] arr = runner.getMoves();
@@ -63,7 +63,7 @@ public class Maze {
 
     /**
      * Verifies a user's input to move the runner
-     * Moves the runner in the respective WASD direcitons
+     * Moves the runner in the respective WASD directions
      * Increments the number of valid moves made
      * @param letter the input move used
     */
@@ -112,7 +112,7 @@ public class Maze {
     }
 
     /**
-     * Increments the step (move) count
+     * Increments the step (move) count if the runner successfully moves in WASD direction
     */
     public void increment() {
         step ++;

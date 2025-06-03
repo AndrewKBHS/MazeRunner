@@ -7,7 +7,7 @@ import java.util.*;
 */
 public class MazeRunner {
     /** 
-     * Starts a game where the runner has to reach the end
+     * Starts a game where the runner has to reach the end of the maze (the exit)
     */
     public static void main(String[] args) throws FileNotFoundException {
         //setup input system
@@ -88,7 +88,7 @@ public class MazeRunner {
         }
 
        
-        PrintWriter writer = new PrintWriter("leaderboard.txt");
+        PrintWriter writer = new PrintWriter("leaderboard.txt"); //setup rewriting the file
 
         //Display the new leaderboard and save to the leaderboard file 
         System.out.println("Leaderboard:");

@@ -1,14 +1,14 @@
-/*
-   * Creates a human runner
+/**
+   * Creates a human runner to finish the maze
 */
 public class Runner {
     private String shape;
     private String[] moves;
 
    /**
-    * Creates a human
+    * Creates a human runner with a body and an animation sequence
     * @param shape the human as a string
-    * @param moves the human falling animatikon
+    * @param moves the human falling animation
    */
     public Runner(String shape, String[] moves) {
         this.shape = shape;
