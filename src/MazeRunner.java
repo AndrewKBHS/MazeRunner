@@ -71,7 +71,11 @@ public class MazeRunner {
         for (int r=0; r<5; r++) {
             in2 = new Scanner(file.nextLine());
             scores[r] = in2.nextInt();
-            names[r] = in2.next();
+            String str = "";
+            while (in2.hasNext()) { //in case the name is more than one word
+                str += in2.next() + " ";
+            }
+            names[r] = str;
         }
 
         //If the user's score is higher (less steps), place them on the leaderboard
