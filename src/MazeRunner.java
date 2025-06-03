@@ -77,7 +77,7 @@ public class MazeRunner {
         //If the user's score is higher (less steps), place them on the leaderboard
         for (int r=0; r<5; r++) {
             if (maze.getStep() < scores[r]) {
-                for (int a=4; a>r; a--) {
+                for (int a=4; a>r; a--) { //shift the lower ranking competitors
                     scores[a] = scores[a - 1];
                     names[a] = names[a - 1];
                 }
@@ -94,7 +94,7 @@ public class MazeRunner {
         System.out.println("Leaderboard:");
         for (int r=0; r<5; r++) {
             System.out.println(names[r] + ": " + scores[r]);
-            writer.print(scores[r] + " " + names[r] + "\n");
+            writer.print(scores[r] + " " + names[r] + "\n"); //rewrite the contents to update the file
         }
 
         //close the writer

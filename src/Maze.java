@@ -51,9 +51,11 @@ public class Maze {
     */
     public void explosion(Runner runner) {
         String[] arr = runner.getMoves();
+        //each move in moves
         for (String s : arr) {
+            //set the animation frame into the maze
             maze[r][c] = s;
-            for (int r=0; r<10000; r++) { //the max r depends on the cpu power
+            for (int r=0; r<10000; r++) { //the max r depends on the cpu power for delay animation speed
                 System.out.println(this);
             }
         }
@@ -68,7 +70,7 @@ public class Maze {
     public boolean move(String letter) {
         //when the move is "w"
         if (letter.equals("w")) {
-            if (verifyMove(r-1, c)) {
+            if (verifyMove(r-1, c)) { //verify the move, then update the maze
                 maze[r][c] = " ";
                 r-=1;
                 maze[r][c] = runner.toString();
@@ -76,7 +78,7 @@ public class Maze {
             }
         }
         //when the move is "a"
-        if (letter.equals("a")) {
+        if (letter.equals("a")) { //verify the move, then update the maze
             if (verifyMove(r, c-1)) {
                 maze[r][c] = " ";
                 c-=1;
@@ -87,7 +89,7 @@ public class Maze {
 
         //when the move is "s"
         if (letter.equals("s")) {
-            if (verifyMove(r+1, c)) {
+            if (verifyMove(r+1, c)) { //verify the move, then update the maze
                 maze[r][c] = " ";
                 r+=1;
                 maze[r][c] = runner.toString();
@@ -97,7 +99,7 @@ public class Maze {
 
         //when the move is "d"
         if (letter.equals("d")) {
-            if (verifyMove(r, c+1)) {
+            if (verifyMove(r, c+1)) { //verify the move, then update the maze
                 maze[r][c] = " ";
                 c+=1;
                 maze[r][c] = runner.toString();
@@ -120,6 +122,7 @@ public class Maze {
      * Returns true if the runner reaches the exit. If not, returns false
     */
     public boolean completed() {
+        //if the runner position is at the exit
         if (r==r2 && c==c2) {
             return true;
         }
@@ -138,6 +141,7 @@ public class Maze {
      * Returns the maze in its current form
     */
     public String toString() {
+        //print out the 2d version of the maze (array to string)
         String string = "";
         for (String[] s : maze) {
             String str = "";
