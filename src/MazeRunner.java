@@ -35,6 +35,7 @@ public class MazeRunner {
         Maze maze = new Maze(runner);
 
         System.out.println("Starting now...");
+        System.out.println("Use WASD to move. Enter to make the move");
 
         in.useDelimiter("");
 
