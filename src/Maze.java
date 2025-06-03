@@ -1,3 +1,6 @@
+/**
+    *Creates a maze for the runner to exit
+*/
 public class Maze {
     private String[][] maze = {
             {"#","#","#","e","#"},
@@ -8,12 +11,18 @@ public class Maze {
     };
     private int r;
     private int c;
-    private int r2 = 0;
-    private int c2 = 3;
-    private int step = 0;
+    private int r2 = 0; //the y-coordinate of the exit
+    private int c2 = 3; //the x-coordinate of the exit
+    private int step = 0; //the number of moves made
     private int size = maze.length;
     private Runner runner;
 
+    /**
+        *Creates a maze with the runner in starting position
+        *@param r the y coordinate of the runner
+        *@param c the x coordinate of the runner
+        *@param runner the runner type
+    */
     public Maze(Runner person) {
         r = 4;
         c = 1;
@@ -21,28 +30,41 @@ public class Maze {
         maze[r][c] = person.toString();
     }
 
+    /**
+        *Returns true if the position is not a wall
+        *Returns false if the position is a wall or out of bounds
+    */
     public boolean verifyMove(int row, int col) {
-        if (0<=row && row<size){
-            if (0<=col && col<size) {
-                if (!maze[row][col].equals("#")) {
+        if (0<=row && row<size){ //row boundaries
+            if (0<=col && col<size) { //column boundaries
+                if (!maze[row][col].equals("#")) { //is not a wall
                     return true;
                 }
             }
         }
-        return false;
+        return false; //is a wall
     }
 
+    /**
+        *Prints a series of mazes to animated the runner colliding into a wall/boundary
+    */
     public void explosion(Runner runner) {
         String[] arr = runner.getMoves();
         for (String s : arr) {
             maze[r][c] = s;
-            for (int r=0; r<130000; r++) {
+            for (int r=0; r<130000; r++) { //the max r depends on the cpu power
                 System.out.println(this);
             }
         }
     }
 
+    /**
+        *Verifies a user's input to move the runner
+        *Moves the runner in the respective WASD direcitons
+        *Increments the number of valid moves made
+    */
     public boolean move(String letter) {
+        //when the move is "w"
         if (letter.equals("w")) {
             if (verifyMove(r-1, c)) {
                 maze[r][c] = " ";
@@ -51,6 +73,7 @@ public class Maze {
                 return true;
             }
         }
+        //when the move is "a"
         if (letter.equals("a")) {
             if (verifyMove(r, c-1)) {
                 maze[r][c] = " ";
@@ -59,6 +82,8 @@ public class Maze {
                 return true;
             }
         }
+
+        //when the move is "s"
         if (letter.equals("s")) {
             if (verifyMove(r+1, c)) {
                 maze[r][c] = " ";
@@ -67,6 +92,8 @@ public class Maze {
                 return true;
             }
         }
+
+        //when the move is "d"
         if (letter.equals("d")) {
             if (verifyMove(r, c+1)) {
                 maze[r][c] = " ";
@@ -76,13 +103,20 @@ public class Maze {
             }
         }
 
+        //invalid move
         return false;
     }
 
+    /**
+        *Increments the step (move) count
+    */
     public void increment() {
         step ++;
     }
 
+    /**
+        *Returns true if the runner reaches the exit. If not, returns false
+    */
     public boolean completed() {
         if (r==r2 && c==c2) {
             return true;
@@ -91,10 +125,16 @@ public class Maze {
         return false;
     }
 
+    /**
+        *Returns the number of valid steps/moves made
+    */
     public int getStep() {
         return step;
     }
 
+    /**
+        *Returns the maze in its current form
+    */
     public String toString() {
         String string = "";
         for (String[] s : maze) {
