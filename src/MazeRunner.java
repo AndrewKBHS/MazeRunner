@@ -2,12 +2,12 @@ import java.io.*;
 import java.util.*;
 
 /**
-    *Runs the MazeRunner game
-    *@author Andrew Kim 
+ * Runs the MazeRunner game
+ * @author Andrew Kim
 */
 public class MazeRunner {
     /** 
-       *Starts a game where the runner has to reach the end
+     * Starts a game where the runner has to reach the end
     */
     public static void main(String[] args) throws FileNotFoundException {
         //setup input system
@@ -97,6 +97,7 @@ public class MazeRunner {
             writer.print(scores[r] + " " + names[r] + "\n");
         }
 
+        //close the writer
         writer.close();
     }
 
